@@ -1,0 +1,7 @@
+<suite name="Suite1" verbose="1">
+    <test name="Example">
+        <classes>
+            <class name="SumTest"/>
+        </classes>
+    </test>
+</suite>
