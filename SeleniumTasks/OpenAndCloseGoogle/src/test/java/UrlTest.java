@@ -8,7 +8,7 @@ public class UrlTest {
     @BeforeMethod
     public void beforeOpeningBrowser(){
         System.setProperty("webdriver.chrome.driver",
-                "C:\\Users\\Smart\\Desktop\\AutomationTasks\\SeleniumTasks\\OpenAndCloseGoogle\\src\\main\\resources\\chromedriver.exe");
+                "src\\main\\resources\\chromedriver.exe");
     }
     @Test
     public void openBrowser (){
