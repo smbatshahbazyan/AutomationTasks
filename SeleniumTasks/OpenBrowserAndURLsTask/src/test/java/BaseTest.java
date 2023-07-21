@@ -6,16 +6,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-public class SetupChromeDriver {
-    public WebDriver getObj() {
-        return obj;
-    }
+public class BaseTest {
 
-    public void setObj(WebDriver obj) {  //encapsulation is incomplete
-        this.obj = obj;
-    }
-
-    private WebDriver obj;
+    protected WebDriver obj;
 
     @BeforeSuite
     public void setupChromeDriver() {
@@ -27,12 +20,11 @@ public class SetupChromeDriver {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         obj = new ChromeDriver(options);
-        setObj(obj);
     }
 
     @AfterMethod
     public void closeChromeDriver() {
-        getObj().quit();
+        obj.quit();
     }
 }
 
