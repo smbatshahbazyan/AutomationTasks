@@ -12,13 +12,13 @@ public class AmazonTest extends BaseTest {
     By searchButton = By.xpath("//input[@id='nav-search-submit-button']");
 
     @BeforeClass
-    public void openUrlAndAddFirstOfferToBasket() throws InterruptedException {
+    public void openUrlAndMaximizePage() {
         driver.get(URLForAmazon);
         driver.manage().window().maximize();
     }
 
     @Test
-    public void aaa() {
+    public void searchBoxTest() {
         wait.until(ExpectedConditions.elementToBeClickable(allButtonFromSearchXpath)).click();
         wait.until(ExpectedConditions.elementToBeClickable(booksFromDropdownInSearchXpath)).click();
         wait.until(ExpectedConditions.elementToBeClickable(searchField)).sendKeys("Mark Twain");
