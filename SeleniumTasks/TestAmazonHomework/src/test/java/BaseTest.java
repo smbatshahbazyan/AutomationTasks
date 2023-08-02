@@ -23,7 +23,7 @@ public class BaseTest {
         Thread.sleep(5000);
         if (driver != null) {
             driver.quit();
-            driver=null;
+            driver = null;
         }
     }
 }

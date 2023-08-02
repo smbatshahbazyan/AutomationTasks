@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -7,7 +8,6 @@ import org.testng.annotations.Test;
 public class AmazonTest extends BaseTest {
     String URLForAmazon = "https://www.amazon.com/";
     By allButtonFromSearchXpath = By.xpath(" //div[@id='nav-search-dropdown-card']");
-    By booksFromDropdownInSearchXpath = By.xpath("//div[@id='nav-search-dropdown-card']//select[@id='searchDropdownBox']/option[6]");
     By searchField = By.xpath("//div[@class='nav-search-field ']/input[@id='twotabsearchtextbox']");
     By searchButton = By.xpath("//input[@id='nav-search-submit-button']");
 
@@ -20,7 +20,8 @@ public class AmazonTest extends BaseTest {
     @Test
     public void searchBoxTest() {
         wait.until(ExpectedConditions.elementToBeClickable(allButtonFromSearchXpath)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(booksFromDropdownInSearchXpath)).click();
+        Select fromDropdown = new Select(driver.findElement(By.id("searchDropdownBox")));
+        fromDropdown.selectByVisibleText("Books");
         wait.until(ExpectedConditions.elementToBeClickable(searchField)).sendKeys("Mark Twain");
         wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
         String searchResultText = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='search']//span[@data-component-type='s-result-info-bar']//div[contains (@class, 's-breadcrumb')]//span[1]"))).getText();
